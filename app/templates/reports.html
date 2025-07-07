@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+</head>
+<body>
+    <h2>Reports</h2>
+    <form method="POST">
+        From: <input type="date" name="from_date">
+        To: <input type="date" name="to_date">
+        <button type="submit">Filter</button>
+    </form>
+
+    <table border="1">
+        <tr>
+            <th>Date</th><th>Category</th><th>Amount</th><th>Type</th>
+        </tr>
+        {% for t in transactions %}
+        <tr>
+            <td>{{ t[0] }}</td>
+            <td>{{ t[1] }}</td>
+            <td>{{ t[2] }}</td>
+            <td>{{ t[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br><a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>
