@@ -70,6 +70,6 @@ class MainAppTestCase(unittest.TestCase):
         response = self.client.get('/logout', follow_redirects=True)
         self.assertIn(b'Logged out successfully', response.data)
 
-
+#Test
 if __name__ == '__main__':
     unittest.main()
