@@ -23,11 +23,13 @@ jobs:
                 python -m unittest discover -s app -p "test_*.py"
 
     Docker:
+        runs-on: ubuntu-latest
+        needs: build
         steps: 
             - name: Checkout code
               uses: actions/checkout@v2
 
-            - name: Login to Docker Hub
+            - name: Login to Docker Hub 
               if: ${{ secrets.DOCKERHUB_SECRET != '' }} && ${{ secrets.DOCKERHUB_USERNAME != null }}
               uses: docker/login-action@v2
               with:
